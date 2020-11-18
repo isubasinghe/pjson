@@ -106,7 +106,7 @@ all' = object <|> array <|> string' <|> null' <|> float <|> integer
 
 array :: Parser JsonObject
 array = do
-  contents <- (ws *> char '[' <* ws) *> sepBy (ws *> char ',' <* ws) all' <* ws <* char ']'
+  contents <- ((ws *> char '[' <* ws) *> (sepBy (ws *> char ',' <* ws) all' <|> pure []) <* ws <* char ']')
   return (JsonArray contents)
 
 ws :: Parser [Char]
@@ -116,6 +116,6 @@ ws = many space
 object :: Parser JsonObject
 object = do
   ws *> char '{' <* ws
-  contents <- sepBy (ws *> char ',' <* ws) (liftA2 (,) (string'' <* ws <* char ':' <* ws) all')
+  contents <- (sepBy (ws *> char ',' <* ws) (liftA2 (,) (string'' <* ws <* char ':' <* ws) all')) <|> pure []
   ws *> char '}'
   return (JsonObject $ fromList contents)
