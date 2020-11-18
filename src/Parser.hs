@@ -57,8 +57,6 @@ float = do
   int' <- integer'
   return (JsonDouble (read (int ++ [dot] ++ int') :: Double))
 
--- type Ident = String
-
 data JsonObject
   = JsonInt Integer
   | JsonDouble Double
