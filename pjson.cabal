@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cada93754e8992531893b4459bbecde1b382a657c1b1cfa5a3659e5b6b08684d
+-- hash: 64378ac45f4c71677f1299d44b542761533270bb00befb8f6f9fc3ea0a62fd6c
 
 name:           pjson
 version:        0.1.0.0
@@ -27,7 +27,6 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
       Parser
   other-modules:
       Paths_pjson

@@ -1,4 +1,4 @@
-module Parser (char, string, float, integer, Parser (..)) where
+module Parser where
 
 import Control.Applicative (Alternative (..), liftA2)
 import Data.Bifunctor (Bifunctor (first))
